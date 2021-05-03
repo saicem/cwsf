@@ -1,3 +1,4 @@
+from os import curdir
 import requests
 import cv2
 import numpy as np
@@ -11,7 +12,7 @@ class EleQuery:
   __charSet = ''
 
   def __init__(self):
-    with open('./discern.json','r') as f:
+    with open('/home/saicem/.local/lib/python3.6/site-packages/saicem/discern.json','r') as f:
       self.__charSet = json.loads(f.read())
 
   def __getCode(self):
@@ -70,6 +71,6 @@ class EleQuery:
       if checkCode != -1:
         break
     if checkCode == -1:
-      return -1
+      return 0
     self.__login(nickName, password, checkCode)
     return self.__getEleFee(roomno, factorycode, area)

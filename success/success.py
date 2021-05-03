@@ -1,19 +1,12 @@
 import sys
-from EleQuery import EleQuery
+from saicem import elequery
 
 fileName, nickName, password, roomno, factorycode, area = sys.argv
-# nickName = '0121904950722'
-# password = '021539'
-# roomno = '7796'
-# factorycode = 'E023'
-# area = '9001'
 
-res = EleQuery().Get(nickName, password, roomno, factorycode, area)
-print(res) 
-# {"roomlist":
-# {"resultInfo":{"result":"1","timeStamp":"2021-05-03T18:30:41.2149563+08:00","msg":"成功"},
-# "remainPower":"161.48",
-# "remainName":"电量",
-# "ZVlaue":"9976.13",
-# "readTime":"2021/5/3 18:04:21"},
-# "returncode":"SUCCESS","returnmsg":"ok"}
+query = elequery.EleQuery()
+res = query.Get(nickName, password, roomno, factorycode, area)
+if(res == 0):
+  print(0)
+else:
+  print(str(1)+res)
+# {"roomlist":{"resultInfo":{"result":"1","timeStamp":"2021-05-03T16:14:35.9129277+08:00","msg":"成功"},"remainPower":"161.55","remainName":"电量","ZVlaue":"9976.06","readTime":"2021/5/3 16:04:20"},"returncode":"SUCCESS","returnmsg":"ok"}

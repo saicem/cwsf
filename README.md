@@ -8,9 +8,11 @@
 
 ## 必要条件
 
-pip install opencv-python
-pip install numpy
-pip install fake_useragent
+- pip install opencv-python
+- pip install opencv-python-headless 
+> linux 上使用
+- pip install numpy
+- pip install fake_useragent
 
 
 ## 请求分析
